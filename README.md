@@ -1,1 +1,1 @@
-Deep learning repo for several projects
+Deep learning repo
