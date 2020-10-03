@@ -42,7 +42,7 @@ class Encoder(nn.Module):
         Allow or prevent the computation of gradients for convolutional blocks 2 through 4 of the encoder.
         :param fine_tune: Allow?
         """
-        # shut down leraning of every layer (the first ones will never learn, as base features(foundations) should be already good)
+        # shut down learning of every layer (the first ones will never learn, as base features(foundations) should be already good)
         for p in self.resnet.parameters():
             p.requires_grad = False
         # If fine-tuning, only fine-tune convolutional blocks 2 through 4
@@ -59,7 +59,7 @@ class Attention(nn.Module):
     dd = decoder_dim
     ad = attention_dim
     bs = batch_size
-    np = num_pixels (multiplying 2 dimensions of the encored output together)
+    np = num_pixels (multiplying 2 dimensions of the encoded output together)
     input dim = (bs, num_pi)
     
     Steps:

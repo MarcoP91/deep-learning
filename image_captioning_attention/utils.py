@@ -108,7 +108,7 @@ def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_i
                 
                 # Sample captions
                 if len(imcaps[i]) < captions_per_image:
-                    # if I have more caption for this image than the threshold, sample them
+                    # if I have less caption for this image than the threshold, duplicate some of them
                     captions = imcaps[i] + [choice(imcaps[i]) for _ in range(captions_per_image - len(imcaps[i]))]
                 
                 else:
@@ -122,8 +122,11 @@ def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_i
                 if len(img.shape) ==2:
                     img= img[:,:,np.newaxis]
                     img = np.concatenate([img, img, img], axis=2)
+
                 img = resize(img, (256, 256))
-                print(img.shape)
+
+                # channel first
+                img = np.moveaxis(img, 2, 0)
                 assert img.shape == (3, 256, 256)
                 assert np.max(img) <= 255
                 
@@ -137,7 +140,7 @@ def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_i
                     # <star> + caption + <end> + <pad> until maxlen
                     enc_c = [word_map['<start>']] + [word_map.get(word, word_map['<unk>']) for word in c] + [word_map['<end>']] + [word_map['<pad>']] * (max_len - len(c))
                     
-                    # Find caption legths
+                    # Find caption lengths
                     # +2 for start, end
                     c_len = len(c) + 2
                     enc_captions.append(enc_c)
