@@ -1,7 +1,7 @@
 # CNN Projects
 
 A serie of notebooks about experiments with Convolutional Neural Networks. <br>
-DL libraries used: Tensorflow 1.x, Keras
+DL libraries used: Tensorflow 1.x, Keras, Fastai
 
 Notebooks description:
 
