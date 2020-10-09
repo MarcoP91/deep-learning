@@ -1,7 +1,7 @@
 # Deep Learning repository
 
 Main repository for small deep learning projects. <br>
-Detalied descriptions of the notebooks can be found in the subfolders.
+Detalied description of the notebooks can be found in the subfolders.
 
 Library/tools used:
 
