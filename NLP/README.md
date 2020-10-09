@@ -5,7 +5,7 @@ DL libraries used: Tensorflow 1.x, Keras
 
 Notebooks description:
 
- - **bag_of_words **: <br>
+ - **bag_of_words ** : <br>
  Using Tensorflow, this notebook builds a spam/ham classifier.
  - **cbow**: <br>
  Using Tensorflow, this notebook predicts the next word using a Contnuous Bag-Of-Words (CBOW) approach.
